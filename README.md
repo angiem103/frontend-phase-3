@@ -1,6 +1,6 @@
 # [App name TBD] Frontend
 
-[App name TBD] is an application I created for animal hospitals in which hospital administrators can keep track of the patients. This application was created while studying at Flatiron School to demonstrate the skills that I've learned as of the third phase of the program.
+[App name TBD] is an application I created for animal hospitals in which hospital administrators can keep track of the patient's appointments. This application was created while studying at Flatiron School to demonstrate the skills that I've learned as of the third phase of the program.
 
 ### Frotend Requirements
 * node version v16.10.0
