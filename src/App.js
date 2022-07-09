@@ -2,7 +2,8 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from "./components/NavBar";
-import Patients from "./components/Patients";
+import Pets from "./components/Pets";
+import Home from "./components/Home"
 import { useState, useEffect} from "react";
 
 
@@ -21,7 +22,7 @@ function App() {
       <NavBar />
       <h1>Hello World</h1>
       <Routes>
-        <Route path="/allpets" element={<Patients />} />
+        <Route path="/allpets" element={<Pets allpets={pets}/>} />
         <Route path="/" element ={<Home/>} />
       </Routes>
     </div>
