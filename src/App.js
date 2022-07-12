@@ -3,8 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from "./components/NavBar";
 import Pets from "./components/Pets";
-import Home from "./components/Home"
+import Home from "./components/Home";
+import PetDetails from "./components/PetDetails";
 import { useState, useEffect} from "react";
+import PetCard from "./components/PetCard";
 
 
 function App() {
@@ -20,10 +22,11 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <h1>Hello World</h1>
       <Routes>
         <Route path="/allpets" element={<Pets allpets={pets}/>} />
+        <Route path="/allpets/:id" element={<PetDetails/>} />
         <Route path="/" element ={<Home/>} />
+
       </Routes>
     </div>
   );

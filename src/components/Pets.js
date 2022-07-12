@@ -1,15 +1,21 @@
-import React from 'react'
+import React from 'react';
+import PetCard from './PetCard';
+import CardGroup from 'react-bootstrap/CardGroup';
+
+
 
 function Pets({allpets}) {
 
     const renderPets = allpets.map((pet) => (
         <div key={pet.id}>
-            <h1>{pet.name}</h1>
+            <PetCard pet={pet}/>
         </div>
     ))
 
     return (
-        <h1>{renderPets}</h1>
+        <div>
+            <CardGroup > {renderPets} </CardGroup>
+         </div>
     )
 };
 
