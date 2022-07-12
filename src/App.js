@@ -24,7 +24,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/allpets" element={<Pets allpets={pets}/>} />
-        <Route path="/allpets/:id" element={<PetDetails/>} />
+        <Route path="/allpets/:id" element={<PetDetails allpets={pets}/>} />
         <Route path="/" element ={<Home/>} />
 
       </Routes>
