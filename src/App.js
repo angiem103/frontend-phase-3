@@ -27,13 +27,17 @@ function App() {
     .then(appointments => setAppointments(appointments))
   }, []);
 
+  function addPatient(newPet){
+    setPets([...pets,newPet])
+  }
+
   return (
     <div className="App">
       <NavBar />
       <Routes>
         <Route path="/allpatients" element={<Pets allpets={pets}/>} />
         <Route path="/allpatients/:id" element={<PetDetails allpets={pets} appointments={appointments}/>} />
-        <Route path="/newpatient" element={<NewPet />} />
+        <Route path="/newpatient" element={<NewPet onAddNewPatient={addPatient} />} />
         <Route path="/" element ={<Home/>} />
       </Routes>
     </div>
