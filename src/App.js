@@ -5,13 +5,15 @@ import NavBar from "./components/NavBar";
 import Pets from "./components/Pets";
 import Home from "./components/Home";
 import PetDetails from "./components/PetDetails";
+import NewPet from "./components/NewPet";
 import { useState, useEffect} from "react";
-import PetCard from "./components/PetCard";
+
 
 
 function App() {
 
   const [pets, setPets] = useState([]);
+  const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:9292/patients")
@@ -19,14 +21,20 @@ function App() {
     .then(pets => setPets(pets))
   }, []);
 
+  useEffect(() => {
+    fetch("http://localhost:9292/appointments")
+    .then(r => r.json())
+    .then(appointments => setAppointments(appointments))
+  }, []);
+
   return (
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/allpets" element={<Pets allpets={pets}/>} />
-        <Route path="/allpets/:id" element={<PetDetails allpets={pets}/>} />
+        <Route path="/allpatients" element={<Pets allpets={pets}/>} />
+        <Route path="/allpatients/:id" element={<PetDetails allpets={pets} appointments={appointments}/>} />
+        <Route path="/newpatient" element={<NewPet />} />
         <Route path="/" element ={<Home/>} />
-
       </Routes>
     </div>
   );

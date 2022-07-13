@@ -18,7 +18,7 @@ function PetCard({pet}) {
             <Card.Title>{pet.name}</Card.Title>
             <Card.Text>{pet.animal_type}
             </Card.Text>
-            <Link to={`/allpets/${pet.id}`}><Button variant="primary">Details</Button>
+            <Link to={`/allpatients/${pet.id}`}><Button variant="primary">Details</Button>
             </Link>
             </Card.Body>
         </Card>
