@@ -1,11 +1,13 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
-function PetDetails({allpets, appointments}) {
+import EditPet from './EditPet'
+function PetDetails({allpets, appointments, onPatientDelete}) {
 
     const params = useParams();
     const pet = allpets.find((pet) => pet.id == params.id);
     const appointment = appointments.find((appointment) => appointment.patient_id == pet.id);
+    const navigate = useNavigate();
 
     function getTime() {
 
@@ -28,6 +30,21 @@ function PetDetails({allpets, appointments}) {
 
     }
 
+    function handleDelete() {
+        fetch(`http://localhost:9292/patients/${pet.id}`, {
+            method: "DELETE",
+        })
+        .then(r =>r.json())
+        .then(()=> {
+            onPatientDelete(pet)
+            navigate("/allpatients")
+        })
+    }
+
+    function handleEdit() {
+        console.log("hi")
+    }
+
     return pet ? (
     <div>
         <h1>{pet.name}</h1>
@@ -43,7 +60,9 @@ function PetDetails({allpets, appointments}) {
             <p>Date: {appointment ? appointment.date : "No scheduled appointments"}</p>
             <p>{appointment ? "Time:" : ''} {appointment ? getTime(appointment) : undefined}</p>
         </div>
-        <Button>Delete Patient</Button>
+        <Button onClick={handleDelete}>Delete Patient</Button>
+        <Button onClick={handleEdit}>Edit Patient Info</Button>
+        <EditPet/>
     </div>
     )
     : undefined

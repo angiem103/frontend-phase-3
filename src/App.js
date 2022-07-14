@@ -31,12 +31,16 @@ function App() {
     setPets([...pets,newPet])
   }
 
+  function deletePatient(patient){
+    const updatedPatients = pets.filter(pet => pet.id !== patient.id)
+    setPets(updatedPatients)
+  }
   return (
     <div className="App">
       <NavBar />
       <Routes>
         <Route path="/allpatients" element={<Pets allpets={pets}/>} />
-        <Route path="/allpatients/:id" element={<PetDetails allpets={pets} appointments={appointments}/>} />
+        <Route path="/allpatients/:id" element={<PetDetails allpets={pets} appointments={appointments} onPatientDelete={deletePatient}/>} />
         <Route path="/newpatient" element={<NewPet onAddNewPatient={addPatient} />} />
         <Route path="/" element ={<Home/>} />
       </Routes>
