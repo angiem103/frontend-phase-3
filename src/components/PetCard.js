@@ -7,9 +7,6 @@ import { Link } from "react-router-dom";
 
 function PetCard({pet}) {
 
-    // const params = useParams();
-    // const pet = allpets.find((pet) => pet.id == params.id);
-
 
     return (
         <div>
@@ -18,7 +15,7 @@ function PetCard({pet}) {
             <Card.Title>{pet.name}</Card.Title>
             <Card.Text>{pet.animal_type}
             </Card.Text>
-            <Link to={`/allpatients/${pet.id}`}><Button variant="primary">Details</Button>
+            <Link to={`/allpatients/${pet.id}`}><Button variant="primary" >Details</Button >
             </Link>
             </Card.Body>
         </Card>

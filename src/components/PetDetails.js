@@ -1,7 +1,6 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
-import EditPet from './EditPet'
 function PetDetails({allpets, appointments, onPatientDelete}) {
 
     const params = useParams();
@@ -41,10 +40,6 @@ function PetDetails({allpets, appointments, onPatientDelete}) {
         })
     }
 
-    function handleEdit() {
-        console.log("hi")
-    }
-
     return pet ? (
     <div>
         <h1>{pet.name}</h1>
@@ -58,11 +53,12 @@ function PetDetails({allpets, appointments, onPatientDelete}) {
             Upcoming appointment:
             <p></p>
             <p>Date: {appointment ? appointment.date : "No scheduled appointments"}</p>
-            <p>{appointment ? "Time:" : ''} {appointment ? getTime(appointment) : undefined}</p>
+            <p>{appointment ? "Time:" : undefined} {appointment ? getTime(appointment) : undefined}</p>
         </div>
         <Button onClick={handleDelete}>Delete Patient</Button>
-        <Button onClick={handleEdit}>Edit Patient Info</Button>
-        <EditPet/>
+        <Link to={`/editpatient/${pet.id}`}>
+        <Button>Edit Patient Info</Button>
+        </Link>
     </div>
     )
     : undefined

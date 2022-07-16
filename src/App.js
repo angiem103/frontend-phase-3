@@ -6,6 +6,7 @@ import Pets from "./components/Pets";
 import Home from "./components/Home";
 import PetDetails from "./components/PetDetails";
 import NewPet from "./components/NewPet";
+import EditPet from "./components/EditPet";
 import { useState, useEffect} from "react";
 
 
@@ -35,6 +36,13 @@ function App() {
     const updatedPatients = pets.filter(pet => pet.id !== patient.id)
     setPets(updatedPatients)
   }
+
+  function handleEdit(editedPet){
+    const unchangedPatients = pets.filter(pet => pet.id !== editedPet.id)
+    setPets([unchangedPatients,editedPet])
+  }
+
+
   return (
     <div className="App">
       <NavBar />
@@ -42,6 +50,7 @@ function App() {
         <Route path="/allpatients" element={<Pets allpets={pets}/>} />
         <Route path="/allpatients/:id" element={<PetDetails allpets={pets} appointments={appointments} onPatientDelete={deletePatient}/>} />
         <Route path="/newpatient" element={<NewPet onAddNewPatient={addPatient} />} />
+        <Route path="/editpatient/:id" element={<EditPet allpets={pets} onEditPatient={handleEdit}/>} />
         <Route path="/" element ={<Home/>} />
       </Routes>
     </div>
