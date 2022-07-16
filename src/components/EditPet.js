@@ -10,12 +10,12 @@ function EditPet({allpets, onEditPatient}) {
     const pet = allpets.find((pet) => pet.id == params.id);
     const navigate = useNavigate();
    
-    const [name, setName] = useState('');
-    const [animalType, setAnimalType] = useState('');
-    const [age, setAge] = useState('');
-    const [breed, setBreed] = useState('');
-    const [weight, setWeight] = useState('');
-    const [sex, setSex] = useState('');
+    const [name, setName] = useState(pet.name);
+    const [animalType, setAnimalType] = useState(pet.animal_type);
+    const [age, setAge] = useState(pet.age);
+    const [breed, setBreed] = useState(pet.breed);
+    const [weight, setWeight] = useState(pet.weight);
+    const [sex, setSex] = useState(pet.sex);
 
     function handleSubmitChanges(e){
         e.preventDefault()
@@ -26,11 +26,10 @@ function EditPet({allpets, onEditPatient}) {
           breed: breed,
           weight: weight,
           sex: sex,
+          id: pet.id
         };
 
-        console.log(editedPatient)
-
-        fetch(`http://localhost:9292/patients/${pet.id}`,
+        fetch(`http://localhost:9292/patients/${editedPatient.id}`,
         {
             method: 'PATCH',
             headers: {
@@ -39,8 +38,8 @@ function EditPet({allpets, onEditPatient}) {
             body: JSON.stringify(editedPatient)
         })
         .then(r => r.json())
-        .then(patient => {
-           onEditPatient(patient)
+        .then(editedPatient => {
+           onEditPatient(editedPatient)
            navigate(`/allpatients/${editedPatient.id}`)
           })
     }
