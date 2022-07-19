@@ -47,6 +47,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
+        <Route path="/vets" element={<Vets />} />
         <Route path="/allpatients" element={<Pets allpets={pets}/>} />
         <Route path="/allpatients/:id" element={<PetDetails allpets={pets} appointments={appointments} onPatientDelete={deletePatient}/>} />
         <Route path="/newpatient" element={<NewPet onAddNewPatient={addPatient} />} />
