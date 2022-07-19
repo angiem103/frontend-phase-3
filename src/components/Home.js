@@ -1,9 +1,9 @@
 import React from 'react';
 import Search from "./Search"
 
-function Home() {
+function Home({allpets}) {
     return (
-        <Search/>
+        <Search pets={allpets}/>
     )
 };
 

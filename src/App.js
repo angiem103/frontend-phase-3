@@ -51,7 +51,7 @@ function App() {
         <Route path="/allpatients/:id" element={<PetDetails allpets={pets} appointments={appointments} onPatientDelete={deletePatient}/>} />
         <Route path="/newpatient" element={<NewPet onAddNewPatient={addPatient} />} />
         <Route path="/editpatient/:id" element={<EditPet allpets={pets} onEditPatient={handleEdit}/>} />
-        <Route path="/" element ={<Home/>} />
+        <Route path="/" element ={<Home allpets={pets}/>} />
       </Routes>
     </div>
   );
