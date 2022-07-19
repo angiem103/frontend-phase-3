@@ -3,7 +3,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import VetCard from './VetCard'
 import { useState, useEffect} from 'react';
 
-function Vets() {
+function Vets({pets}) {
 
     const [vets, setVets] = useState([])
 
@@ -15,7 +15,7 @@ function Vets() {
 
     const renderVets = vets.map((vet) => (
         <div key={vet.id}>
-            <VetCard vet={vet}/>
+            <VetCard vet={vet} pets={pets}/>
         </div>
     ))
 
