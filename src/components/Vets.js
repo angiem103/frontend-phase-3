@@ -10,7 +10,7 @@ function Vets() {
     useEffect(() => {
         fetch("http://localhost:9292/veterinarians")
         .then(r => r.json())
-        .then(vets => Vets(vets))
+        .then(vets => setVets(vets))
       }, []);
 
     const renderVets = vets.map((vet) => (
