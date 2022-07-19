@@ -1,5 +1,6 @@
 import React from 'react';
 import CardGroup from 'react-bootstrap/CardGroup';
+import VetCard from './VetCard'
 import { useState, useEffect} from 'react';
 
 function Vets() {
