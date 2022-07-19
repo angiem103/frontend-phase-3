@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import PetDetails from "./components/PetDetails";
 import NewPet from "./components/NewPet";
 import EditPet from "./components/EditPet";
+import Vets from "./components/Vets";
 import { useState, useEffect} from "react";
 
 
