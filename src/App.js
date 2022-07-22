@@ -15,7 +15,7 @@ import { useState, useEffect} from "react";
 function App() {
 
   const [pets, setPets] = useState([]);
-  const [appointments, setAppointments] = useState([]);
+
 
   useEffect(() => {
     fetch("http://localhost:9292/patients")
@@ -23,11 +23,6 @@ function App() {
     .then(pets => setPets(pets))
   }, []);
 
-  useEffect(() => {
-    fetch("http://localhost:9292/appointments")
-    .then(r => r.json())
-    .then(appointments => setAppointments(appointments))
-  }, []);
 
   function addPatient(newPet){
     setPets([...pets,newPet])
@@ -43,14 +38,15 @@ function App() {
     setPets([unchangedPatients,editedPet])
   }
 
+  console.log(pets)
 
   return (
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/vets" element={<Vets pets={pets} appointments={appointments}/>} />
+        <Route path="/vets" element={<Vets pets={pets} />} />
         <Route path="/allpatients" element={<Pets allpets={pets}/>} />
-        <Route path="/allpatients/:id" element={<PetDetails allpets={pets} appointments={appointments} onPatientDelete={deletePatient}/>} />
+        <Route path="/allpatients/:id" element={<PetDetails allpets={pets} onPatientDelete={deletePatient}/>} />
         <Route path="/newpatient" element={<NewPet onAddNewPatient={addPatient} />} />
         <Route path="/editpatient/:id" element={<EditPet allpets={pets} onEditPatient={handleEdit}/>} />
         <Route path="/" element ={<Home allpets={pets}/>} />

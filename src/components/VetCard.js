@@ -1,7 +1,15 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 
-function VetCard({vet}) {
+function VetCard({vet, pets, appointments}) {
+
+    const filteredAppointments = appointments.filter((appointment) => {
+        return appointment.veterinarian_id == vet.id
+    })
+
+    const patientIds = filteredAppointments.map(appointment => appointment.patient_id)
+    const petIds = pets.map(pet => pet.id)
+
 
     return (
         <div>
@@ -13,7 +21,7 @@ function VetCard({vet}) {
             </Card.Body>
         </Card>
         </div>
-    )
-}
+    );
+};
 
 export default VetCard;

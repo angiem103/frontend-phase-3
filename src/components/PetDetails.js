@@ -1,14 +1,13 @@
 import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
-function PetDetails({allpets, appointments, onPatientDelete}) {
+function PetDetails({allpets, onPatientDelete}) {
 
     const params = useParams();
     const pet = allpets.find((pet) => pet.id == params.id);
-    const appointment = appointments.find((appointment) => appointment.patient_id == pet.id);
     const navigate = useNavigate();
 
-    function getTime() {
+    function getTime(appointment) {
 
         const time = appointment.time.split('T')[1]
         const hour = time.split(':')[0]
@@ -29,6 +28,15 @@ function PetDetails({allpets, appointments, onPatientDelete}) {
 
     }
 
+    const renderAppointments = pet ? pet.appointments.map((appointment) => {
+        return (
+            <div>
+        <p>Date: {appointment.date}</p>
+        <p>Time: {getTime(appointment)}</p>
+            </div>
+        )
+    }): undefined
+
     function handleDelete() {
         fetch(`http://localhost:9292/patients/${pet.id}`, {
             method: "DELETE",
@@ -41,7 +49,7 @@ function PetDetails({allpets, appointments, onPatientDelete}) {
     }
 
     return pet ? (
-    <div>
+    <div key={pet.id}>
         <h1>{pet.name}</h1>
         <br></br>
         <p>Animal type: {pet.animal_type}</p>
@@ -51,9 +59,7 @@ function PetDetails({allpets, appointments, onPatientDelete}) {
         <p>Sex: {pet.sex}</p>
         <div>
             Upcoming appointment:
-            <p></p>
-            <p>Date: {appointment ? appointment.date : "No scheduled appointments"}</p>
-            <p>{appointment ? "Time:" : undefined} {appointment ? getTime(appointment) : undefined}</p>
+            {pet.appointment? renderAppointments : <p>No Upcoming Appointments</p>}
         </div>
         <Button onClick={handleDelete}>Delete Patient</Button>
         <Link to={`/editpatient/${pet.id}`}>
