@@ -19,8 +19,6 @@ function Vets() {
         </div>
     ))
 
-    console.log(vets.appointments)
-
     return (
         <div>
             <CardGroup > {renderVets} </CardGroup>
