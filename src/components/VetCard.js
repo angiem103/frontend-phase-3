@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import Accordion from 'react-bootstrap/Accordion';
 
 function VetCard({vet}) {
 
@@ -28,7 +29,6 @@ function VetCard({vet}) {
         const patient = appointment.patient
         return patient ? (
         <div key={appointment.id}>
-            <p>Appointments</p>
             <ul>
                 <b>Patient: {patient.name}</b>
                 <p>Date: {appointment.date}</p>
@@ -41,14 +41,25 @@ function VetCard({vet}) {
 
     return (
         <div>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '18rem', display: 'flex', flexDirection: 'row' }}>
             <Card.Body>
             <Card.Title>{vet.name}</Card.Title>
             <Card.Text>{vet.phone_number}</Card.Text>
-            <ul>{renderAppointments}</ul>
+            <Accordion >
+<Accordion.Item eventKey="0">
+  <Accordion.Header>Appointments</Accordion.Header>
+  <Accordion.Body>
+        <ul>{renderAppointments}</ul>
+  </Accordion.Body>
+</Accordion.Item>
+</Accordion>
             </Card.Body>
         </Card>
         </div>
+
+
+
+
     );
 };
 

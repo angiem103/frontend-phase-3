@@ -21,7 +21,7 @@ function Vets() {
 
     return (
         <div>
-            <CardGroup > {renderVets} </CardGroup>
+            <CardGroup class="container"> {renderVets} </CardGroup>
          </div>
     )
 }

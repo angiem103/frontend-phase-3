@@ -13,7 +13,7 @@ function Pets({allpets}) {
     ))
 
     return (
-        <div>
+        <div class="container">
             <CardGroup > {renderPets} </CardGroup>
          </div>
     )

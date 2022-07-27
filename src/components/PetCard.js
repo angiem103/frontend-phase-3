@@ -3,14 +3,14 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 
-// import { useParams } from "react-routher-dom";
+
 
 function PetCard({pet}) {
 
 
     return (
-        <div>
-            <Card style={{ width: '18rem' }}>
+        <div class="item"> 
+            <Card >
             <Card.Body>
             <Card.Title>{pet.name}</Card.Title>
             <Card.Text>{pet.animal_type}
@@ -20,7 +20,10 @@ function PetCard({pet}) {
             </Card.Body>
         </Card>
         </div>
+
+        
     )
 }
+
 
 export default PetCard;

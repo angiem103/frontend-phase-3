@@ -37,7 +37,7 @@ function App() {
     const unchangedPatients = pets.filter(pet => pet.id !== editedPet.id)
     setPets([unchangedPatients,editedPet])
   }
-  
+
   return (
     <div className="App">
       <NavBar />

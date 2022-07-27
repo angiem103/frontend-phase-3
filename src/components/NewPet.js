@@ -45,7 +45,7 @@ function NewPet({onAddNewPatient}) {
 
     return (
         <div>
-            <Form onSubmit={handleSubmit}>
+            <Form className="new-pet" onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>New Patient</Form.Label>
         <Form.Control type="text" placeholder="Name" onChange={e => setName(e.target.value)} />

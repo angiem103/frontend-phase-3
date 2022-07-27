@@ -1,8 +1,11 @@
 import React from 'react';
 import { useState } from 'react'
 import Button from 'react-bootstrap/Button';
+import CardGroup from 'react-bootstrap/CardGroup';
 import Form from 'react-bootstrap/Form';
 import PetCard from './PetCard';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 function Search({pets}) {
 
@@ -18,38 +21,48 @@ function Search({pets}) {
     }
 
     function handleSearch(e) {
-
         e.preventDefault()
+        setSelected('')
+        setSearchedPets('')
+        setAnimalName('')
+
         const filteredPets = pets.filter((pet) => {
-            return pet.name.toLowerCase() == animalName.toLowerCase() && pet.animal_type == selected 
+            return pet.name.toLowerCase() == animalName.toLowerCase() || pet.animal_type == selected 
         })
+
         const searchedPet = filteredPets.map((pet) => (
             <div key={pet.id}>
                 <PetCard pet={pet}/>
             </div>
         ))
-        setSearchedPets(searchedPet)    
+        setSearchedPets(searchedPet)
 
     }
 
     return (
-        <Form>
-      <Form.Group className="mb-3" controlId="searchForm">
+        <Form >
+      <Form.Group className="search" controlId="searchForm">
         <Form.Label>Find Patient</Form.Label>
-        <Form.Control type="text" placeholder="Enter name" onChange={e => setAnimalName(e.target.value)} />
+        <Form.Control type="text" placeholder="Enter name"  onChange={e => setAnimalName(e.target.value)} />
         <Form.Select aria-label="Default select example" value={selected} onChange={handleChange}>
         <option disabled={true} value="">
           Choose Animal Type
         </option>
             {uniqueAnimals.map((animal) => <option key={animal}>{animal}</option>) }
     </Form.Select>
-      </Form.Group>
+    <div id="search-div"></div>
       <Button variant="primary" type="search" onClick={handleSearch}>
         Search
-      </Button>
-      {searchedPets}
+      </Button >
+      </Form.Group>
+      <div id="searched-group">
+          <Container>
+          <Row className="justify-content-md-center">
+      <CardGroup style={{display: 'flex', flexDirection: 'row'}}>{searchedPets}</CardGroup>
+      </Row>
+      </Container>
+      </div>
     </Form>
-        
     )
 };
 
