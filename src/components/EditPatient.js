@@ -10,12 +10,12 @@ function EditPatient({allpatients, onEditPatient}) {
     const patient = allpatients.find((patient) => patient.id == params.id);
     const navigate = useNavigate();
    
-    const [name, setName] = useState(patient.name);
-    const [animalType, setAnimalType] = useState(patient.animal_type);
-    const [age, setAge] = useState(patient.age);
-    const [breed, setBreed] = useState(patient.breed);
-    const [weight, setWeight] = useState(patient.weight);
-    const [sex, setSex] = useState(patient.sex);
+    const [name, setName] = useState('')
+    const [animalType, setAnimalType] = useState('');
+    const [age, setAge] = useState('');
+    const [breed, setBreed] = useState('');
+    const [weight, setWeight] = useState('');
+    const [sex, setSex] = useState('');
 
     function handleSubmitChanges(e){
         e.preventDefault()
@@ -48,7 +48,7 @@ function EditPatient({allpatients, onEditPatient}) {
         <div>
             <Form className="edit-patient" onSubmit={handleSubmitChanges}> 
               <Form.Group className="mb-3" >
-                <Form.Label>Edit Patient</Form.Label>
+                <Form.Label  className="text-center" style={{width: "100%", color: "black"}}>Edit Patient</Form.Label>
                 <br></br>
                 <p>Name:</p>
                 <Form.Control type="text" defaultValue={patient.name} onChange={e => setName(e.target.value)}/>
@@ -68,9 +68,11 @@ function EditPatient({allpatients, onEditPatient}) {
                 <p>Sex:</p>
                 <Form.Control type="text" defaultValue={patient.sex} onChange={e => setSex(e.target.value)} />
               </Form.Group>
-              <Button variant="primary" type="submit">
-                Submit Changes
-              </Button>
+              <div className='button'>
+                <Button variant="primary" type="submit">
+                  Submit Changes
+                </Button>
+              </div>
             </Form>
         </div>
     ) : undefined
