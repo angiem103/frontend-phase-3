@@ -26,17 +26,17 @@ function App() {
 
 
   function addPatient(newPatient){
-    setPets([...patients,newPatient])
+    setPatients([...patients,newPatient])
   };
 
   function deletePatient(deletedPatient){
     const updatedPatients = patients.filter(patient => patient.id !== deletedPatient.id)
-    setPets(updatedPatients)
+    setPatients(updatedPatients)
   };
 
   function handleEdit(editedPatient){
     const unchangedPatients = patients.filter(patient => patient.id !== editedPet.id)
-    setPets([unchangedPatients,editedPatient])
+    setPatients([unchangedPatients,editedPatient])
   };
 
   return (
