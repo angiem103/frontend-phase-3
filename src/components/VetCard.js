@@ -40,20 +40,22 @@ function VetCard({vet}) {
     
 
     return (
-        <div>
-            <Card style={{ width: '18rem', display: 'flex', flexDirection: 'row' }}>
+        <div className='vet-card'>
+            {/* <Card style={{ width: '18rem'}} > */}
+            <Card>
             <Card.Body>
             <Card.Title>{vet.name}</Card.Title>
             <Card.Text>{vet.phone_number}</Card.Text>
-            <Accordion >
-<Accordion.Item eventKey="0">
+
+            <Accordion>
+<Accordion.Item eventKey='1'>
   <Accordion.Header>Appointments</Accordion.Header>
   <Accordion.Body>
         <ul>{renderAppointments}</ul>
   </Accordion.Body>
 </Accordion.Item>
 </Accordion>
-            </Card.Body>
+</Card.Body>
         </Card>
         </div>
 

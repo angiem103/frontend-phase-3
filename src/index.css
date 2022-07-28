@@ -1,7 +1,8 @@
 .App { 
   min-height: 100vh;
-  background-image: url(https://st4.depositphotos.com/4035529/26803/v/450/depositphotos_268032912-stock-illustration-veterinary-pets-accessories-outline-icons.jpg?forcejpeg=true);
-  background-repeat:repeat;
+  background-image: url(https://img.freepik.com/premium-photo/cat-paws-stethoscope-blue-background-concept-veterinary-medicine-taking-care-pets-banner-copy-space_76158-859.jpg?w=2000);
+  background-size: cover;
+  background-position: right;
 }
 
 body {
@@ -21,9 +22,9 @@ code {
   margin: auto;
   width: 50%;
   padding-bottom: 50px;
-  padding-top: 30px;
+  padding-top: 10px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size:x-large;
+  font-size:large;
   text-align: center;
 }
 
@@ -46,10 +47,53 @@ code {
   align-items: center;
   justify-content: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
 }
 
 .item {
   width: 16em;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding-top: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
+#row {
+  justify-content: center;
+  padding-left:200px;
+  padding-right: 200px;
+}
+
+.vet-card {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.title {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  font-size: x-large;
+  padding-top: 30px;
+}
+
+.card-text {
+  color: gray;
+}
+
+br {
+  display: block; /* makes it have a width */
+  content: ""; /* clears default height */
+  margin-top: 10px; /* change this to whatever height you want it */
+}
+
+.header {
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding-top: 30px;
+}
+
+#sub-header {
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: x-large;
+}

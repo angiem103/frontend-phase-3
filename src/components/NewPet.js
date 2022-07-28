@@ -49,10 +49,15 @@ function NewPet({onAddNewPatient}) {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>New Patient</Form.Label>
         <Form.Control type="text" placeholder="Name" onChange={e => setName(e.target.value)} />
+        <br></br>
         <Form.Control type="text" placeholder="Animal Type" onChange={e => setAnimalType(e.target.value)} />
+        <br></br>
         <Form.Control type="text" placeholder="Age" onChange={e => setAge(e.target.value)} />
+        <br></br>
         <Form.Control type="text" placeholder="Breed" onChange={e => setBreed(e.target.value)} />
+        <br></br>
         <Form.Control type="text" placeholder="Weight" onChange={e => setWeight(e.target.value)} />
+        <br></br>
         <Form.Control type="text" placeholder="Sex" onChange={e => setSex(e.target.value)} />
 
       </Form.Group>

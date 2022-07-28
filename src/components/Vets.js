@@ -2,6 +2,8 @@ import React from 'react';
 import CardGroup from 'react-bootstrap/CardGroup';
 import VetCard from './VetCard'
 import { useState, useEffect} from 'react';
+import Row from 'react-bootstrap/Row';
+
 
 function Vets() {
 
@@ -14,14 +16,20 @@ function Vets() {
       }, []);
 
     const renderVets = vets.map((vet) => (
-        <div key={vet.id}>
+        <div key={vet.id} className="item">
             <VetCard vet={vet}/>
         </div>
     ))
 
     return (
-        <div>
-            <CardGroup class="container"> {renderVets} </CardGroup>
+        <div >
+            
+                <h3 className='title'>Veterinarians</h3>
+                
+            <Row md={2} className="justify-content-md-center" id="row">
+            {/* <CardGroup className='container'> {renderVets} </CardGroup> */}
+            {renderVets}
+            </Row>
          </div>
     )
 }

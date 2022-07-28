@@ -40,10 +40,11 @@ function Search({pets}) {
     }
 
     return (
-        <Form >
+        <Form className="d-grid gap-3">
       <Form.Group className="search" controlId="searchForm">
         <Form.Label>Find Patient</Form.Label>
         <Form.Control type="text" placeholder="Enter name"  onChange={e => setAnimalName(e.target.value)} />
+        <br></br>
         <Form.Select aria-label="Default select example" value={selected} onChange={handleChange}>
         <option disabled={true} value="">
           Choose Animal Type

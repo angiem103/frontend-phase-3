@@ -12,8 +12,8 @@ function PetCard({pet}) {
         <div class="item"> 
             <Card >
             <Card.Body>
-            <Card.Title>{pet.name}</Card.Title>
-            <Card.Text>{pet.animal_type}
+            <Card.Title >{pet.name}</Card.Title>
+            <Card.Text> Animal Type: {pet.animal_type}
             </Card.Text>
             <Link to={`/allpatients/${pet.id}`}><Button variant="primary" >Details</Button >
             </Link>

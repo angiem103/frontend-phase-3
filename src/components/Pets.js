@@ -13,8 +13,12 @@ function Pets({allpets}) {
     ))
 
     return (
+        <div>
+        <h3 className='title'>Patients</h3>
         <div class="container">
+
             <CardGroup > {renderPets} </CardGroup>
+         </div>
          </div>
     )
 };
