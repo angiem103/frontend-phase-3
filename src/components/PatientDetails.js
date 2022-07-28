@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 
 
-function PatienttDetails({allpatients, onPatientDelete}) {
+function PatientDetails({allpatients, onPatientDelete}) {
 
     const params = useParams();
     const patient = allpatients.find((patient) => patient.id == params.id);
