@@ -42,6 +42,16 @@ code {
   text-align: center;
 }
 
+.edit-patient {
+  margin: auto;
+  width: 40%;
+  padding-bottom: 50px;
+  padding-top: 30px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size:large;
+  text-align: left;
+  color: gray
+}
 .container {
   display: flex;
   align-items: center;

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function PatientCard({patient}) {
 
     return (
-        <div class="item"> 
+        <div className="item"> 
             <Card >
                 <Card.Body>
                 <Card.Title >{patient.name}</Card.Title>

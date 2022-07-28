@@ -46,26 +46,26 @@ function EditPatient({allpatients, onEditPatient}) {
 
     return patient ? (
         <div>
-            <Form onSubmit={handleSubmitChanges}> 
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form className="edit-patient" onSubmit={handleSubmitChanges}> 
+              <Form.Group className="mb-3" >
                 <Form.Label>Edit Patient</Form.Label>
                 <br></br>
-                <text>Name:</text>
+                <p>Name:</p>
                 <Form.Control type="text" defaultValue={patient.name} onChange={e => setName(e.target.value)}/>
                 <br></br>
-                <text>Animal Type:</text>
+                <p>Animal Type:</p>
                 <Form.Control type="text" defaultValue={patient.animal_type} onChange={e => setAnimalType(e.target.value)} />
                 <br></br>
-                <text>Age:</text>
+                <p>Age:</p>
                 <Form.Control type="text" defaultValue={patient.age} onChange={e => setAge(e.target.value)} />
                 <br></br>
-                <text>Breed:</text>
+                <p>Breed:</p>
                 <Form.Control type="text" defaultValue={patient.breed} onChange={e => setBreed(e.target.value)} />
                 <br></br>
-                <text>Weight:</text>
+                <p>Weight:</p>
                 <Form.Control type="text" defaultValue={patient.weight} onChange={e => setWeight(e.target.value)} />
                 <br></br>
-                <text>Sex:</text>
+                <p>Sex:</p>
                 <Form.Control type="text" defaultValue={patient.sex} onChange={e => setSex(e.target.value)} />
               </Form.Group>
               <Button variant="primary" type="submit">
