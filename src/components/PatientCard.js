@@ -20,7 +20,7 @@ function PatientCard({patient}) {
             </Card>
         </div>
     );
-};
+}
 
 
 export default PatientCard;

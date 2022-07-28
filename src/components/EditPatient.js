@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-function EditPet({allpatients, onEditPatient}) {
+function EditPatient({allpatients, onEditPatient}) {
 
     const params = useParams();
     const patient = allpatients.find((patient) => patient.id == params.id);
@@ -27,7 +27,7 @@ function EditPet({allpatients, onEditPatient}) {
           weight: weight,
           sex: sex,
           id: patient.id
-        };
+        }
 
         fetch(`http://localhost:9292/patients/${editedPatient.id}`,
         {
@@ -42,7 +42,7 @@ function EditPet({allpatients, onEditPatient}) {
            onEditPatient(editedPatient)
            navigate(`/allpatients/${editedPatient.id}`)
           });
-    };
+    }
 
     return patient ? (
         <div>

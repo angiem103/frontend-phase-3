@@ -37,7 +37,7 @@ function NewPatient({onAddNewPatient}) {
            onAddNewPatient(patient)
            navigate("/allpatients")
           })
-    }
+      }
     
 
 
@@ -64,5 +64,5 @@ function NewPatient({onAddNewPatient}) {
               </Form>
         </div>
     );
-};
+}
 export default NewPatient;

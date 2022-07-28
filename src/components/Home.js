@@ -8,7 +8,7 @@ function Home({allpatients}) {
         <p id='sub-header'>Which patient are we working on today?</p>
         <Search patients={allpatients}/>
         </div>
-    )
-};
+    );
+}
 
 export default Home;
