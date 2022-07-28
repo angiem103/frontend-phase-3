@@ -35,7 +35,7 @@ function App() {
   };
 
   function handleEdit(editedPatient){
-    const unchangedPatients = patients.filter(patient => patient.id !== editedPet.id)
+    const unchangedPatients = patients.filter(patient => patient.id !== editedPatient.id)
     setPatients([unchangedPatients,editedPatient])
   };
 
