@@ -1,6 +1,9 @@
 import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+import ListGroupItem from "react-bootstrap/esm/ListGroupItem";
 
 
 function PatientDetails({allpatients, onPatientDelete}) {
@@ -51,22 +54,28 @@ function PatientDetails({allpatients, onPatientDelete}) {
     }
 
     return patient ? (
-        <div key={patient.id}>
-            <h1>{patient.name}</h1>
-            <br></br>
-            <p>Animal type: {patient.animal_type}</p>
-            <p>Breed: {patient.breed}</p>
-            <p>Age: {patient.age}</p>
-            <p>Weight: {patient.weight}</p>
-            <p>Sex: {patient.sex}</p>
-                <div>
+        <div className="container" key={patient.id}>
+            <Card className="detail-card" style={{ width: '30rem'}}>
+            <h1 style={{textAlign: "center"}}>{patient.name}</h1>
+
+            <ListGroup variant="list-group-flush">
+            <ListGroup.Item>Animal type: {patient.animal_type}</ListGroup.Item>
+            <ListGroup.Item>Breed: {patient.breed}</ListGroup.Item>
+            <ListGroup.Item>Age: {patient.age}</ListGroup.Item>
+            <ListGroup.Item>Weight: {patient.weight}</ListGroup.Item>
+            <ListGroup.Item>Sex: {patient.sex}</ListGroup.Item>
+                <ListGroup.Item>
                     Upcoming appointment:
                     {patient.appointment? renderAppointments : <p>No Upcoming Appointments</p>}
-                 </div>
-            <Button onClick={handleDelete}>Delete Patient</Button>
+                 </ListGroup.Item>
+             </ListGroup>
+        <div className="button-div">
+            <Button className="button" onClick={handleDelete}>Delete Patient</Button>
             <Link to={`/editpatient/${patient.id}`}>
-                <Button>Edit Patient Info</Button>
+                <Button className="button">Edit Patient Info</Button>
             </Link>
+            </div>
+            </Card>
     </div>
     ) : undefined;
 }
