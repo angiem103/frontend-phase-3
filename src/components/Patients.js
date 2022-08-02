@@ -15,7 +15,7 @@ function Patients({allpatients}) {
     return (
         <div>
             <h3 className='title'>Patients</h3>
-                <div class="container">
+                <div className="container">
                     <CardGroup > {renderPatients} </CardGroup>
                 </div>
          </div>

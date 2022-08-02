@@ -10,12 +10,12 @@ function EditPatient({allpatients, onEditPatient}) {
     const patient = allpatients.find((patient) => patient.id == params.id);
     const navigate = useNavigate();
    
-    const [name, setName] = useState('')
-    const [animalType, setAnimalType] = useState('');
-    const [age, setAge] = useState('');
-    const [breed, setBreed] = useState('');
-    const [weight, setWeight] = useState('');
-    const [sex, setSex] = useState('');
+    const [name, setName] = useState(patient.name)
+    const [animalType, setAnimalType] = useState(patient.animal_type);
+    const [age, setAge] = useState(patient.age);
+    const [breed, setBreed] = useState(patient.breed);
+    const [weight, setWeight] = useState(patient.weight);
+    const [sex, setSex] = useState(patient.sex);
 
     function handleSubmitChanges(e){
         e.preventDefault()
@@ -39,10 +39,12 @@ function EditPatient({allpatients, onEditPatient}) {
         })
         .then(r => r.json())
         .then(editedPatient => {
+            console.log(editedPatient)
            onEditPatient(editedPatient)
            navigate(`/allpatients/${editedPatient.id}`)
           });
     }
+
 
     return patient ? (
         <div>
@@ -51,22 +53,22 @@ function EditPatient({allpatients, onEditPatient}) {
                 <Form.Label  className="text-center" style={{width: "100%", color: "black"}}>Edit Patient</Form.Label>
                 <br></br>
                 <p>Name:</p>
-                <Form.Control type="text" defaultValue={patient.name} onChange={e => setName(e.target.value)}/>
+                <Form.Control type="text" defaultValue={name}  onChange={e => setName(e.target.value)}/>
                 <br></br>
                 <p>Animal Type:</p>
-                <Form.Control type="text" defaultValue={patient.animal_type} onChange={e => setAnimalType(e.target.value)} />
+                <Form.Control type="text" defaultValue={animalType} onChange={e => setAnimalType(e.target.value)} />
                 <br></br>
                 <p>Age:</p>
-                <Form.Control type="text" defaultValue={patient.age} onChange={e => setAge(e.target.value)} />
+                <Form.Control type="text" defaultValue={age} onChange={e => setAge(e.target.value)} />
                 <br></br>
                 <p>Breed:</p>
-                <Form.Control type="text" defaultValue={patient.breed} onChange={e => setBreed(e.target.value)} />
+                <Form.Control type="text" defaultValue={breed} onChange={e => setBreed(e.target.value)} />
                 <br></br>
                 <p>Weight:</p>
-                <Form.Control type="text" defaultValue={patient.weight} onChange={e => setWeight(e.target.value)} />
+                <Form.Control type="text" defaultValue={weight} onChange={e => setWeight(e.target.value)} />
                 <br></br>
                 <p>Sex:</p>
-                <Form.Control type="text" defaultValue={patient.sex} onChange={e => setSex(e.target.value)} />
+                <Form.Control type="text" defaultValue={sex} onChange={e => setSex(e.target.value)} />
               </Form.Group>
               <div className='button'>
                 <Button variant="primary" type="submit">
