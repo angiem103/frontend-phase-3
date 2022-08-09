@@ -32,14 +32,14 @@ function PatientDetails({allpatients, onPatientDelete}) {
 
     }
 
-    const renderAppointments = patient ? patient.appointments.map((appointment) => {
+    const renderAppointments = patient && Array.length > 1 ? patient.appointments.map((appointment) => {
         return (
-            <div>
+            <div key={appointment.id} >
                  <p>Date: {appointment.date}</p>
                  <p>Time: {getTime(appointment)}</p>
             </div>
         );
-    }) : undefined
+    }) : <p>No appointments available</p>
 
     function handleDelete() {
         fetch(`http://localhost:9292/patients/${patient.id}`, {
@@ -64,7 +64,7 @@ function PatientDetails({allpatients, onPatientDelete}) {
                     <ListGroup.Item>Sex: {patient.sex}</ListGroup.Item>
                     <ListGroup.Item>
                         Upcoming appointment:
-                        {patient.appointment? renderAppointments : <p>No Upcoming Appointments</p>}
+                        {renderAppointments} 
                     </ListGroup.Item>
                 </ListGroup>
                 <div className="button-div">
