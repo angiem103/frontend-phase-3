@@ -32,7 +32,7 @@ function PatientDetails({allpatients, onPatientDelete}) {
 
     }
 
-    const renderAppointments = patient && Array.length > 1 ? patient.appointments.map((appointment) => {
+    const renderAppointments = patient && patient.appointments.length > 0 ? patient.appointments.map((appointment) => {
         return (
             <div key={appointment.id} >
                  <p>Date: {appointment.date}</p>

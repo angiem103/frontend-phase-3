@@ -9,6 +9,7 @@ import PatientDetails from "./components/PatientDetails";
 import NewPatient from "./components/NewPatient";
 import EditPatient from "./components/EditPatient";
 import Vets from "./components/Vets";
+import NewAppointment from "./components/NewAppointment";
 
 
 
@@ -16,7 +17,7 @@ import Vets from "./components/Vets";
 function App() {
 
   const [patients, setPatients] = useState([]);
-
+  const [vets, setVets] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:9292/patients")
@@ -24,6 +25,11 @@ function App() {
     .then(patients => setPatients(patients))
   }, []);
 
+  useEffect(() => {
+    fetch("http://localhost:9292/veterinarians")
+    .then(r => r.json())
+    .then(vets => setVets(vets))
+  }, []);
 
   function addPatient(newPatient){
     setPatients([...patients,newPatient])
@@ -43,11 +49,12 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/vets" element={<Vets patients={patients} />} />
+        <Route path="/vets" element={<Vets vets={vets} />} />
         <Route path="/allpatients" element={<Patients allpatients={patients}/>} />
         <Route path="/allpatients/:id" element={<PatientDetails allpatients={patients} onPatientDelete={deletePatient}/>} />
         <Route path="/newpatient" element={<NewPatient onAddNewPatient={addPatient} />} />
         <Route path="/editpatient/:id" element={<EditPatient allpatients={patients} onEditPatient={handleEdit}/>} />
+        <Route path="/newappointment" element={<NewAppointment allpatients={patients} vets={vets} />} />
         <Route path="/" element ={<Home allpatients={patients}/>} />
       </Routes>
     </div>
