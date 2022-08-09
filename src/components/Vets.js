@@ -3,12 +3,12 @@ import VetCard from './VetCard';
 import Row from 'react-bootstrap/Row';
 
 
-function Vets({vets}) {
+function Vets({vets, appointments}) {
 
 
     const renderVets = vets.map((vet) => (
         <div key={vet.id} className="item">
-            <VetCard vet={vet}/>
+            <VetCard vet={vet} appointments={appointments}/>
         </div>
     ));
 

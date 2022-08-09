@@ -2,7 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
 
-function VetCard({vet}) {
+function VetCard({vet, appointments}) {
 
     function getTime(appointment) {
 
@@ -25,8 +25,13 @@ function VetCard({vet}) {
 
     }
 
-    const renderAppointments = vet.appointments.map((appointment) => {
+    const vetAppointments = appointments.filter((appointment) => {
+       return appointment.veterinarian_id == vet.id
+    })
+    
+    const renderAppointments = vetAppointments.map((appointment) => {
         const patient = appointment.patient
+        console.log(appointment.patient)
         return patient ? (
             <div key={appointment.id}>
                 <ul>

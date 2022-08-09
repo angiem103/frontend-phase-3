@@ -43,7 +43,7 @@ function NewPatient({onAddNewPatient}) {
 
     return (
         <div>
-            <Form className="new-patient" onSubmit={handleSubmit}>
+            <Form className="new" onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>New Patient</Form.Label>
                     <Form.Control type="text" placeholder="Name" onChange={e => setName(e.target.value)} />
