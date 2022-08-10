@@ -31,7 +31,6 @@ function VetCard({vet, appointments}) {
     
     const renderAppointments = vetAppointments.map((appointment) => {
         const patient = appointment.patient
-        console.log(appointment.patient)
         return patient ? (
             <div key={appointment.id}>
                 <ul>
