@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 
-function PatientDetails({allpatients, onPatientDelete}) {
+function PatientDetails({allpatients, appointments, onPatientDelete}) {
 
     const params = useParams();
     const patient = allpatients.find((patient) => patient.id == params.id);
@@ -32,7 +32,11 @@ function PatientDetails({allpatients, onPatientDelete}) {
 
     }
 
-    const renderAppointments = patient && patient.appointments.length > 0 ? patient.appointments.map((appointment) => {
+    const patientAppointments = appointments.filter((appointment) => {
+        return appointment.patient_id == patient.id
+     })
+
+    const renderAppointments = patient && patientAppointments.length > 0 ? patient.appointments.map((appointment) => {
         return (
             <div key={appointment.id} >
                  <p>Date: {appointment.date}</p>
